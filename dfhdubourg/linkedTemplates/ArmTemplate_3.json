@@ -26,14 +26,7 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "copie fichiers ajout fichier",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "copie fichiers sans doublons_copy1",
+							"referenceName": "copie fichiers sans doublon declencheur fichier",
 							"type": "PipelineReference"
 						},
 						"parameters": {}
