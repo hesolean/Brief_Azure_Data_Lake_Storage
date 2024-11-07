@@ -84,19 +84,18 @@
 		"parameters": {
 			"FolderPath_Source": {
 				"type": "String",
-				"defaultValue": "sourcefolder"
+				"defaultValue": "https://blobhdubourg.blob.core.windows.net/conthdubourg"
 			},
 			"Directory_Source": {
-				"type": "String",
-				"defaultValue": "subfolder"
+				"type": "String"
 			},
 			"FolderPath_Destination": {
 				"type": "String",
-				"defaultValue": "destinationfolder"
+				"defaultValue": "https://adlshdubourg.blob.core.windows.net/data-storage"
 			},
 			"Directory_Destination": {
 				"type": "String",
-				"defaultValue": "subfolder"
+				"defaultValue": "input_df_abs_automatique_ssdoublons"
 			},
 			"LastModified_From": {
 				"type": "String",
@@ -104,7 +103,7 @@
 			},
 			"LastModified_To": {
 				"type": "String",
-				"defaultValue": "2019-03-01T00:00:00Z"
+				"defaultValue": "2024-11-07T11:40:00Z"
 			}
 		},
 		"annotations": []
