@@ -1,0 +1,12 @@
+{
+	"name": "Weather",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://api.openweathermap.org/data/2.5/weather?id=2988507&appid=038d78c9cff848db20f0b0f0d154468a",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
