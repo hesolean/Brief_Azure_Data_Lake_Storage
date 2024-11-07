@@ -212,6 +212,30 @@
 									"type": "BinaryReadSettings"
 								}
 							}
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Get Metadata1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "lastModif",
+								"value": {
+									"value": "@activity('Get Metadata1').output.lastModified",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
@@ -224,6 +248,9 @@
 			},
 			"tout": {
 				"type": "Array"
+			},
+			"lastModif": {
+				"type": "String"
 			}
 		},
 		"annotations": [],
