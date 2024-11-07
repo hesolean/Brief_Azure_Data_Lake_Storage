@@ -119,6 +119,10 @@
 			"type": "string",
 			"defaultValue": "adminawdehdf"
 		},
+		"CalendrierBOFIP_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/bofip-impots"
+		},
 		"HttpServer1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "http://jsonplaceholder.typicode.com/"
@@ -281,6 +285,9 @@
 					},
 					"AzureSqlDatabase2_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
+					},
+					"CalendrierBOFIP_properties_typeProperties_url": {
+						"value": "[parameters('CalendrierBOFIP_properties_typeProperties_url')]"
 					},
 					"HttpServer1_properties_typeProperties_url": {
 						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"

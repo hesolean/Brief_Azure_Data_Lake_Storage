@@ -89,6 +89,9 @@
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
 			"value": "adminawdehdf"
 		},
+		"CalendrierBOFIP_properties_typeProperties_url": {
+			"value": "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/bofip-impots"
+		},
 		"HttpServer1_properties_typeProperties_url": {
 			"value": "http://jsonplaceholder.typicode.com/"
 		},
