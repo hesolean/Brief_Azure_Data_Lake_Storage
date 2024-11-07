@@ -1,0 +1,32 @@
+{
+	"name": "lastModif",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "CopyNewFilesByLastModifiedDate",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"FolderPath_Source": "conthdubourg",
+				"FolderPath_Destination": "data-storage",
+				"Directory_Destination": " input_df_abs_automatique_ssdoublons ",
+				"LastModified_From": "@trigger().outputs.windowStartTime",
+				"LastModified_To": "@trigger().outputs.windowEndTime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 15,
+			"startTime": "2024-11-07T10:54:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}
