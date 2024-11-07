@@ -9,6 +9,12 @@
 					"referenceName": "copie fichiers ajout fichier",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "copie fichiers sans doublons_copy1",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "BlobEventsTrigger",
