@@ -1,0 +1,15 @@
+{
+	"name": "SourceDataset_be7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CalendrierBOFIP",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": ""
+		},
+		"schema": []
+	}
+}
