@@ -1,0 +1,120 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dfhdubourg"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage4_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage5_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage6_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage7_accountKey": {
+			"value": ""
+		},
+		"AzureFunction1_functionKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"hdubourg_connectionString": {
+			"value": ""
+		},
+		"hdubourglake_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlshdubourg.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://adlshdubourg.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"value": "https://adlshdubourg.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage4_properties_typeProperties_url": {
+			"value": "https://adlshdubourg.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage5_properties_typeProperties_url": {
+			"value": "https://adlshdubourg.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage6_properties_typeProperties_url": {
+			"value": "https://adlshdubourg.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage7_properties_typeProperties_url": {
+			"value": "https://adlshdubourg.dfs.core.windows.net/"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"value": "https://hdubourgcompression.azurewebsites.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "adventure-works-server-de-hdf.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "adventure_works"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "adminawdehdf"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "adventure-works-server-de-hdf.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "adventure_works"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "adminawdehdf"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "http://jsonplaceholder.typicode.com/"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "http://jsonplaceholder.typicode.com/"
+		},
+		"RestService2_properties_typeProperties_url": {
+			"value": "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/bofip-impots/records?limit=20"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "adventure-works-server-de-hdf"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "adventure_works"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "adminawdehdf"
+		},
+		"ajoutFichier_properties_typeProperties_scope": {
+			"value": "/subscriptions/029b3537-0f24-400b-b624-6058a145efe1/resourceGroups/RG_HDUBOURG/providers/Microsoft.Storage/storageAccounts/blobhdubourg"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
