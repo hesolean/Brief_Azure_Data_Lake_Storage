@@ -1,0 +1,19 @@
+{
+	"name": "Binary6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "input_df_abs_automatique_ssdoublons",
+				"fileSystem": "data-storage"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

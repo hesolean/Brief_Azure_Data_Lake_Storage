@@ -1,0 +1,130 @@
+{
+	"name": "CopyPipeline_e14",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_e14",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Destination",
+						"value": "data-storage/input_BOFIP/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['total_count']"
+								},
+								"sink": {
+									"name": "total_count"
+								}
+							},
+							{
+								"source": {
+									"path": "$['results'][0]['nom_du_fichier']"
+								},
+								"sink": {
+									"name": "nom_du_fichier"
+								}
+							},
+							{
+								"source": {
+									"path": "$['results'][0]['date_de_debut']"
+								},
+								"sink": {
+									"name": "date_de_debut"
+								}
+							},
+							{
+								"source": {
+									"path": "$['results'][0]['date_de_fin']"
+								},
+								"sink": {
+									"name": "date_de_fin"
+								}
+							},
+							{
+								"source": {
+									"path": "$['results'][0]['telechargement']"
+								},
+								"sink": {
+									"name": "telechargement"
+								}
+							},
+							{
+								"source": {
+									"path": "$['results'][0]['type']"
+								},
+								"sink": {
+									"name": "type"
+								}
+							},
+							{
+								"source": {
+									"path": "$['results'][0]['contenu']"
+								},
+								"sink": {
+									"name": "contenu"
+								}
+							},
+							{
+								"source": {
+									"path": "$['results'][0]['empreinte']"
+								},
+								"sink": {
+									"name": "empreinte"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_e14",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_e14",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-11-06T14:39:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

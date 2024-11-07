@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_00j",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "hdubourglake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "*.parquet",
+				"folderPath": "input_BOFIP",
+				"container": "data-storage"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

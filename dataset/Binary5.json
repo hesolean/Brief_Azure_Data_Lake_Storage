@@ -1,0 +1,18 @@
+{
+	"name": "Binary5",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "hdubourg",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "conthdubourg"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

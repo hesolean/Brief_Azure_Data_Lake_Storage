@@ -1,0 +1,9 @@
+{
+	"name": "dfhdubourg",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "59b330e9-beb1-46a6-8513-cf564007cd62",
+		"tenantId": "a2e466aa-4f86-4545-b5b8-97da7c8febf3"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_meq",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "jsonplaceholder",
+				"folderPath": "input_openweather",
+				"fileSystem": "data-storage"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

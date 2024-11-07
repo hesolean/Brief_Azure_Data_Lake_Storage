@@ -1,0 +1,25 @@
+{
+	"name": "ajoutFichier",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "copie fichiers ajout fichier",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/conthdubourg/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/029b3537-0f24-400b-b624-6058a145efe1/resourceGroups/RG_HDUBOURG/providers/Microsoft.Storage/storageAccounts/blobhdubourg",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}
