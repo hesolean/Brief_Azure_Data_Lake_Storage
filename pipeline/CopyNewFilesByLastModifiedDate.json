@@ -84,10 +84,11 @@
 		"parameters": {
 			"FolderPath_Source": {
 				"type": "String",
-				"defaultValue": "blobhdubourg.blob.core.windows.net/conthdubourg"
+				"defaultValue": "blobhdubourg.blob.core.windows.net"
 			},
 			"Directory_Source": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "conthdubourg"
 			},
 			"FolderPath_Destination": {
 				"type": "String",
