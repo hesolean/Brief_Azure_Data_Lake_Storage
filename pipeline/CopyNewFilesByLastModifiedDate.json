@@ -84,14 +84,14 @@
 		"parameters": {
 			"FolderPath_Source": {
 				"type": "String",
-				"defaultValue": "https://blobhdubourg.blob.core.windows.net/conthdubourg"
+				"defaultValue": "blobhdubourg.blob.core.windows.net/conthdubourg"
 			},
 			"Directory_Source": {
 				"type": "String"
 			},
 			"FolderPath_Destination": {
 				"type": "String",
-				"defaultValue": "https://adlshdubourg.blob.core.windows.net/data-storage"
+				"defaultValue": "adlshdubourg.blob.core.windows.net/data-storage"
 			},
 			"Directory_Destination": {
 				"type": "String",
