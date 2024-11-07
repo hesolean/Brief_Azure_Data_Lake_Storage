@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://data.economiehttps://data.economie.gouv.fr/explore/embed/dataset/bofip-impots/calendar/?calendarview=month.gouv.fr/explore/embed/dataset/bofip-impots/calendar/?calendarview=month",
+			"url": "https://data.economie.gouv.fr/explore/dataset/bofip-impots/api/?calendarview=month",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
