@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/bofip-impots/records?limit=20",
+			"url": "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/bofip-impots",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
