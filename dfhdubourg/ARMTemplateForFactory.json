@@ -758,9 +758,7 @@
 								"parameters": {}
 							},
 							"fieldList": [
-								"childItems",
-								"lastModified",
-								"itemName"
+								"childItems"
 							],
 							"storeSettings": {
 								"type": "AzureBlobStorageReadSettings",
@@ -922,49 +920,11 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@activity('liste des fichiers blob').output.childItems",
+								"value": "@activity('liste des fichiers blob').output.itemName",
 								"type": "Expression"
 							},
 							"isSequential": true,
 							"activities": [
-								{
-									"name": "Get Metadata1",
-									"type": "GetMetadata",
-									"dependsOn": [
-										{
-											"activity": "Set variable1",
-											"dependencyConditions": [
-												"Succeeded"
-											]
-										}
-									],
-									"policy": {
-										"timeout": "0.12:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"dataset": {
-											"referenceName": "Binary5",
-											"type": "DatasetReference",
-											"parameters": {}
-										},
-										"fieldList": [
-											"lastModified",
-											"itemName"
-										],
-										"storeSettings": {
-											"type": "AzureBlobStorageReadSettings",
-											"enablePartitionDiscovery": false
-										},
-										"formatSettings": {
-											"type": "BinaryReadSettings"
-										}
-									}
-								},
 								{
 									"name": "Set variable1",
 									"type": "SetVariable",
@@ -975,7 +935,7 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"variableName": "nomfichier",
+										"variableName": "tout",
 										"value": {
 											"value": "@item().name",
 											"type": "Expression"
@@ -992,6 +952,9 @@
 				"variables": {
 					"nomfichier": {
 						"type": "String"
+					},
+					"tout": {
+						"type": "Array"
 					}
 				},
 				"annotations": [],
