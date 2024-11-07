@@ -147,6 +147,10 @@
 			"type": "string",
 			"defaultValue": "adminawdehdf"
 		},
+		"Weather_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.openweathermap.org/data/2.5/weather?id=2988507&appid=038d78c9cff848db20f0b0f0d154468a"
+		},
 		"ajoutFichier_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/029b3537-0f24-400b-b624-6058a145efe1/resourceGroups/RG_HDUBOURG/providers/Microsoft.Storage/storageAccounts/blobhdubourg"
@@ -306,6 +310,9 @@
 					},
 					"SqlServer1_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					},
+					"Weather_properties_typeProperties_url": {
+						"value": "[parameters('Weather_properties_typeProperties_url')]"
 					}
 				}
 			},
