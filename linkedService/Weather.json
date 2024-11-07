@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://api.openweathermap.org/data/3.0/onecall?lat=50.28&lon=2.71&appid=038d78c9cff848db20f0b0f0d154468a",
+			"url": "https://api.openweathermap.org/data/2.5/onecall?lat=50.28&lon=2.71&appid=038d78c9cff848db20f0b0f0d154468a",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
