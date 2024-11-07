@@ -3330,7 +3330,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/CopyNewFilesByLastModifiedDate')]",
+			"name": "[concat(parameters('factoryName'), '/copie fichiers modif et nouveaux')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -3458,7 +3458,7 @@
 				"runtimeState": "Started",
 				"pipeline": {
 					"pipelineReference": {
-						"referenceName": "CopyNewFilesByLastModifiedDate",
+						"referenceName": "copie fichiers modif et nouveaux",
 						"type": "PipelineReference"
 					},
 					"parameters": {
@@ -3484,7 +3484,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/CopyNewFilesByLastModifiedDate')]"
+				"[concat(variables('factoryId'), '/pipelines/copie fichiers modif et nouveaux')]"
 			]
 		}
 	]
