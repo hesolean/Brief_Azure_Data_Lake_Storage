@@ -244,7 +244,7 @@
 		"variables": {
 			"nomfichier": {
 				"type": "String",
-				"defaultValue": "@item().name"
+				"defaultValue": "@item()"
 			},
 			"tout": {
 				"type": "Array"
