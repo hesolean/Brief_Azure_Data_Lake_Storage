@@ -117,6 +117,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "nomfichier",
+							"type": "Expression"
+						},
 						"container": "conthdubourg"
 					}
 				}
