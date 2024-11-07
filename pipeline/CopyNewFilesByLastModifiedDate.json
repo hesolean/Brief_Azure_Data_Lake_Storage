@@ -86,9 +86,6 @@
 				"type": "String",
 				"defaultValue": "conthdubourg"
 			},
-			"Directory_Source": {
-				"type": "String"
-			},
 			"FolderPath_Destination": {
 				"type": "String",
 				"defaultValue": "data-storage"
