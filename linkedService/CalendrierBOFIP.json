@@ -1,0 +1,12 @@
+{
+	"name": "CalendrierBOFIP",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://data.economiehttps://data.economie.gouv.fr/explore/embed/dataset/bofip-impots/calendar/?calendarview=month.gouv.fr/explore/embed/dataset/bofip-impots/calendar/?calendarview=month",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
