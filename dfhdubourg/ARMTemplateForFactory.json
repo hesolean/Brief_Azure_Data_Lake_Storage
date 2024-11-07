@@ -146,6 +146,30 @@
 		"ajoutFichier_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/029b3537-0f24-400b-b624-6058a145efe1/resourceGroups/RG_HDUBOURG/providers/Microsoft.Storage/storageAccounts/blobhdubourg"
+		},
+		"lastModif_properties_pipeline_parameters_FolderPath_Source": {
+			"type": "string",
+			"defaultValue": "conthdubourg"
+		},
+		"lastModif_properties_pipeline_parameters_FolderPath_Destination": {
+			"type": "string",
+			"defaultValue": "data-storage"
+		},
+		"lastModif_properties_pipeline_parameters_Directory_Destination": {
+			"type": "string",
+			"defaultValue": " input_df_abs_automatique_ssdoublons "
+		},
+		"lastModif_properties_pipeline_parameters_LastModified_From": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"lastModif_properties_pipeline_parameters_LastModified_To": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
+		},
+		"lastModif_properties_pipeline_parameters_Directory_Source": {
+			"type": "string",
+			"defaultValue": "/"
 		}
 	},
 	"variables": {
@@ -920,24 +944,61 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@activity('liste des fichiers blob').output.itemName",
+								"value": "@activity('liste des fichiers blob').output.childItems",
 								"type": "Expression"
 							},
 							"isSequential": true,
 							"activities": [
 								{
+									"name": "Get Metadata1",
+									"type": "GetMetadata",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"dataset": {
+											"referenceName": "Binary7",
+											"type": "DatasetReference",
+											"parameters": {}
+										},
+										"fieldList": [
+											"lastModified"
+										],
+										"storeSettings": {
+											"type": "AzureBlobStorageReadSettings",
+											"enablePartitionDiscovery": false
+										},
+										"formatSettings": {
+											"type": "BinaryReadSettings"
+										}
+									}
+								},
+								{
 									"name": "Set variable1",
 									"type": "SetVariable",
-									"dependsOn": [],
+									"dependsOn": [
+										{
+											"activity": "Get Metadata1",
+											"dependencyConditions": [
+												"Succeeded"
+											]
+										}
+									],
 									"policy": {
 										"secureOutput": false,
 										"secureInput": false
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"variableName": "tout",
+										"variableName": "lastModif",
 										"value": {
-											"value": "@item().name",
+											"value": "@activity('Get Metadata1').output.lastModified",
 											"type": "Expression"
 										}
 									}
@@ -951,10 +1012,14 @@
 				},
 				"variables": {
 					"nomfichier": {
-						"type": "String"
+						"type": "String",
+						"defaultValue": "@item()"
 					},
 					"tout": {
 						"type": "Array"
+					},
+					"lastModif": {
+						"type": "String"
 					}
 				},
 				"annotations": [],
@@ -964,7 +1029,8 @@
 				"[concat(variables('factoryId'), '/datasets/Parquet1')]",
 				"[concat(variables('factoryId'), '/datasets/Parquet5')]",
 				"[concat(variables('factoryId'), '/datasets/Binary5')]",
-				"[concat(variables('factoryId'), '/datasets/Binary6')]"
+				"[concat(variables('factoryId'), '/datasets/Binary6')]",
+				"[concat(variables('factoryId'), '/datasets/Binary7')]"
 			]
 		},
 		{
@@ -3160,6 +3226,266 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Binary7')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "hdubourg",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "nomfichier",
+							"type": "Expression"
+						},
+						"container": "conthdubourg"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/hdubourg')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/BinaryDataSourceStore')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Connection to your data source store. ",
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Container": {
+						"type": "string"
+					},
+					"Directory": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": {
+							"value": "@dataset().Directory",
+							"type": "Expression"
+						},
+						"container": {
+							"value": "@dataset().Container",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/BinaryDataDestinationStore')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Connection to your data destination store.  ",
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Container": {
+						"type": "string"
+					},
+					"Directory": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": {
+							"value": "@dataset().Directory",
+							"type": "Expression"
+						},
+						"fileSystem": {
+							"value": "@dataset().Container",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CopyNewFilesByLastModifiedDate')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Copy new and changed files only by using LastModifiedDate",
+				"activities": [
+					{
+						"name": "CopyNewFiles",
+						"description": "Copy new and changed files only by using LastModifiedDate",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "BinarySource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"modifiedDatetimeStart": {
+										"value": "@{pipeline().parameters.LastModified_From}",
+										"type": "Expression"
+									},
+									"modifiedDatetimeEnd": {
+										"value": "@{pipeline().parameters.LastModified_To}",
+										"type": "Expression"
+									},
+									"wildcardFileName": {
+										"value": "*",
+										"type": "Expression"
+									}
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings"
+								}
+							},
+							"sink": {
+								"type": "BinarySink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "BinaryDataSourceStore",
+								"type": "DatasetReference",
+								"parameters": {
+									"Container": {
+										"value": "@pipeline().parameters.FolderPath_Source",
+										"type": "Expression"
+									},
+									"Directory": {
+										"value": "@pipeline().parameters.Directory_Source",
+										"type": "Expression"
+									}
+								}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "BinaryDataDestinationStore",
+								"type": "DatasetReference",
+								"parameters": {
+									"Container": {
+										"value": "@pipeline().parameters.FolderPath_Destination",
+										"type": "Expression"
+									},
+									"Directory": {
+										"value": "@pipeline().parameters.Directory_Destination",
+										"type": "Expression"
+									}
+								}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"FolderPath_Source": {
+						"type": "String",
+						"defaultValue": "conthdubourg"
+					},
+					"FolderPath_Destination": {
+						"type": "String",
+						"defaultValue": "data-storage"
+					},
+					"Directory_Destination": {
+						"type": "String",
+						"defaultValue": "input_df_abs_automatique_ssdoublons"
+					},
+					"LastModified_From": {
+						"type": "String",
+						"defaultValue": "2024-11-07T11:40:00Z"
+					},
+					"LastModified_To": {
+						"type": "String",
+						"defaultValue": "2024-11-07T11:55:00Z"
+					},
+					"Directory_Source": {
+						"type": "string"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/BinaryDataSourceStore')]",
+				"[concat(variables('factoryId'), '/datasets/BinaryDataDestinationStore')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/lastModif')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "CopyNewFilesByLastModifiedDate",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"FolderPath_Source": "[parameters('lastModif_properties_pipeline_parameters_FolderPath_Source')]",
+						"FolderPath_Destination": "[parameters('lastModif_properties_pipeline_parameters_FolderPath_Destination')]",
+						"Directory_Destination": "[parameters('lastModif_properties_pipeline_parameters_Directory_Destination')]",
+						"LastModified_From": "[parameters('lastModif_properties_pipeline_parameters_LastModified_From')]",
+						"LastModified_To": "[parameters('lastModif_properties_pipeline_parameters_LastModified_To')]",
+						"Directory_Source": "[parameters('lastModif_properties_pipeline_parameters_Directory_Source')]"
+					}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Minute",
+					"interval": 15,
+					"startTime": "2024-11-07T10:54:00Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 50,
+					"retryPolicy": {
+						"intervalInSeconds": 30
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/CopyNewFilesByLastModifiedDate')]"
+			]
 		}
 	]
 }

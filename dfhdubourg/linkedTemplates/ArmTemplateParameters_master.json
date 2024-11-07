@@ -110,6 +110,24 @@
 		"ajoutFichier_properties_typeProperties_scope": {
 			"value": "/subscriptions/029b3537-0f24-400b-b624-6058a145efe1/resourceGroups/RG_HDUBOURG/providers/Microsoft.Storage/storageAccounts/blobhdubourg"
 		},
+		"lastModif_properties_pipeline_parameters_FolderPath_Source": {
+			"value": "conthdubourg"
+		},
+		"lastModif_properties_pipeline_parameters_FolderPath_Destination": {
+			"value": "data-storage"
+		},
+		"lastModif_properties_pipeline_parameters_Directory_Destination": {
+			"value": " input_df_abs_automatique_ssdoublons "
+		},
+		"lastModif_properties_pipeline_parameters_LastModified_From": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"lastModif_properties_pipeline_parameters_LastModified_To": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
+		"lastModif_properties_pipeline_parameters_Directory_Source": {
+			"value": "/"
+		},
 		"containerUri": {
 			"value": ""
 		},

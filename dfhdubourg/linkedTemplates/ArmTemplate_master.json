@@ -147,6 +147,30 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/029b3537-0f24-400b-b624-6058a145efe1/resourceGroups/RG_HDUBOURG/providers/Microsoft.Storage/storageAccounts/blobhdubourg"
 		},
+		"lastModif_properties_pipeline_parameters_FolderPath_Source": {
+			"type": "string",
+			"defaultValue": "conthdubourg"
+		},
+		"lastModif_properties_pipeline_parameters_FolderPath_Destination": {
+			"type": "string",
+			"defaultValue": "data-storage"
+		},
+		"lastModif_properties_pipeline_parameters_Directory_Destination": {
+			"type": "string",
+			"defaultValue": " input_df_abs_automatique_ssdoublons "
+		},
+		"lastModif_properties_pipeline_parameters_LastModified_From": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"lastModif_properties_pipeline_parameters_LastModified_To": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
+		},
+		"lastModif_properties_pipeline_parameters_Directory_Source": {
+			"type": "string",
+			"defaultValue": "/"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI pour le compte de stockage contenant des modèles ARM liés"
@@ -336,6 +360,24 @@
 					},
 					"ajoutFichier_properties_typeProperties_scope": {
 						"value": "[parameters('ajoutFichier_properties_typeProperties_scope')]"
+					},
+					"lastModif_properties_pipeline_parameters_FolderPath_Source": {
+						"value": "[parameters('lastModif_properties_pipeline_parameters_FolderPath_Source')]"
+					},
+					"lastModif_properties_pipeline_parameters_FolderPath_Destination": {
+						"value": "[parameters('lastModif_properties_pipeline_parameters_FolderPath_Destination')]"
+					},
+					"lastModif_properties_pipeline_parameters_Directory_Destination": {
+						"value": "[parameters('lastModif_properties_pipeline_parameters_Directory_Destination')]"
+					},
+					"lastModif_properties_pipeline_parameters_LastModified_From": {
+						"value": "[parameters('lastModif_properties_pipeline_parameters_LastModified_From')]"
+					},
+					"lastModif_properties_pipeline_parameters_LastModified_To": {
+						"value": "[parameters('lastModif_properties_pipeline_parameters_LastModified_To')]"
+					},
+					"lastModif_properties_pipeline_parameters_Directory_Source": {
+						"value": "[parameters('lastModif_properties_pipeline_parameters_Directory_Source')]"
 					}
 				}
 			},
