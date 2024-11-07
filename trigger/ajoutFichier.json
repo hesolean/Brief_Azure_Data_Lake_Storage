@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "copie fichiers sans doublons_copy1",
+					"referenceName": "copie fichiers sans doublon declencheur fichier",
 					"type": "PipelineReference"
 				}
 			}
