@@ -13,7 +13,8 @@
 				"FolderPath_Destination": "data-storage",
 				"Directory_Destination": " input_df_abs_automatique_ssdoublons ",
 				"LastModified_From": "@trigger().outputs.windowStartTime",
-				"LastModified_To": "@trigger().outputs.windowEndTime"
+				"LastModified_To": "@trigger().outputs.windowEndTime",
+				"Directory_Source": "/"
 			}
 		},
 		"type": "TumblingWindowTrigger",
