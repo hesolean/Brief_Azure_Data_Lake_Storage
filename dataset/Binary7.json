@@ -1,0 +1,21 @@
+{
+	"name": "Binary7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "hdubourg",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "nomfichier",
+					"type": "Expression"
+				},
+				"container": "conthdubourg"
+			}
+		}
+	}
+}

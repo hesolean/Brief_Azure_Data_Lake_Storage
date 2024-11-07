@@ -179,25 +179,37 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('liste des fichiers blob').output.itemName",
+						"value": "@activity('liste des fichiers blob').output.childItems",
 						"type": "Expression"
 					},
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Set variable1",
-							"type": "SetVariable",
+							"name": "Get Metadata1",
+							"type": "GetMetadata",
 							"dependsOn": [],
 							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
 								"secureOutput": false,
 								"secureInput": false
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "tout",
-								"value": {
-									"value": "@item().name",
-									"type": "Expression"
+								"dataset": {
+									"referenceName": "Binary7",
+									"type": "DatasetReference"
+								},
+								"fieldList": [
+									"lastModified"
+								],
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "BinaryReadSettings"
 								}
 							}
 						}
@@ -207,7 +219,8 @@
 		],
 		"variables": {
 			"nomfichier": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "@item().name"
 			},
 			"tout": {
 				"type": "Array"
